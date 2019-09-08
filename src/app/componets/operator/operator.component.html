@@ -3,10 +3,10 @@
     <h1>Choose operator</h1>
   </div>
   <div
-    class="clr-col-xl-3 clr-col-lg-3 clr-col-md-6 clr-col-sm-6 clr-col-12"
+    class="clr-col-12 clr-col-sm-12 clr-col-md-6 clr-col-lg-3 clr-col-xl-3"
     *ngFor="let operator of operatorList"
   >
-    <a [routerLink]="['refill', operator.id]"
+    <a [routerLink]="['refill', operator.id, operator.name]"
     routerLinkActive="active" class="card clickable">
       <div class="card-block">
         <div class="card-title text-center">

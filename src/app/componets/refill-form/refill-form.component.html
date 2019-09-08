@@ -1,1 +1,21 @@
-<p>refill-form works!</p>
+<div class="clr-row text-center">
+  <div class="clr-col-12 clr-col-sm-12 clr-col-md-3 clr-col-lg-4 clr-col-xl-4"></div>
+  <div class="clr-col " >
+    <h1>Fill the form</h1>
+      <form (submit)="submitForm($event)" clrForm [formGroup]='refillForm'>
+        <clr-input-container>
+          <label class="clr-col-12 clr-col-sm-12 clr-col-md-6 clr-col-lg-6 clr-col-xl-6">Operator name</label>
+          <input class="clr-col-12 clr-col-sm-12 clr-col-md-6 clr-col-lg-6 clr-col-xl-6" clrInput type="text" formControlName="operatorName">
+        </clr-input-container>
+        <clr-input-container>
+          <label class="clr-col-12 clr-col-sm-12 clr-col-md-6 clr-col-lg-6 clr-col-xl-6">Phone number</label>
+          <input class="clr-col-12 clr-col-sm-12 clr-col-md-6 clr-col-lg-6 clr-col-xl-6" clrInput type="text" formControlName="phoneNumber">
+        </clr-input-container>
+        <clr-input-container>
+          <label class="clr-col-12 clr-col-sm-12 clr-col-md-6 clr-col-lg-6 clr-col-xl-6">Amount</label>
+          <input class="clr-col-12 clr-col-sm-12 clr-col-md-6 clr-col-lg-6 clr-col-xl-6" clrInput type="number" formControlName="sum">
+        </clr-input-container>
+      </form>
+  </div>
+  <div class="clr-col-12 clr-col-sm-12 clr-col-md-3 clr-col-lg-4 clr-col-xl-4"></div>
+</div>

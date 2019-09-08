@@ -5,6 +5,6 @@ import { OperatorResolver } from './resolvers/operator.resolver';
 
 export const appRoutes: Routes = [
     { path: '', component: OperatorComponent, resolve: {operators : OperatorResolver }},
-    { path: 'refill/:id', component: RefillFormComponent },
-    { path: '**', redirectTo: '/main', pathMatch: 'full' }
+    { path: 'refill/:id/:name', component: RefillFormComponent },
+    { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
