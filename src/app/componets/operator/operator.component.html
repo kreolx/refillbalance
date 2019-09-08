@@ -1,0 +1,18 @@
+<div class="clr-row">
+  <div class="clr-col-12 text-center">
+    <h1>Choose operator</h1>
+  </div>
+  <div
+    class="clr-col-xl-3 clr-col-lg-3 clr-col-md-6 clr-col-sm-6 clr-col-12"
+    *ngFor="let operator of operatorList"
+  >
+    <a [routerLink]="['refill', operator.id]"
+    routerLinkActive="active" class="card clickable">
+      <div class="card-block">
+        <div class="card-title text-center">
+          {{ operator.name }}
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
