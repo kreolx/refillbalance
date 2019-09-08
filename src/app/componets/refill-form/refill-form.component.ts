@@ -28,10 +28,12 @@ export class RefillFormComponent implements OnInit, OnDestroy {
               private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.subParams = this.route.params.subscribe(data => {
-      this.operatorId = +data.id;
-      this.operatorName = data.name;
-    });
+    if (this.route.params) {
+      this.subParams = this.route.params.subscribe(data => {
+        this.operatorId = +data.id;
+        this.operatorName = data.name;
+      });
+    }
     this.initForm();
     const validatePattern = '[0-9]';
     // create one instance Regexp on component
@@ -93,7 +95,11 @@ export class RefillFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subParams.unsubscribe();
-    clearTimeout(this.timeOut);
+    if (this.subParams){
+      this.subParams.unsubscribe();
+    }
+    if (this.timeOut) {
+      clearTimeout(this.timeOut);
+    }
   }
 }

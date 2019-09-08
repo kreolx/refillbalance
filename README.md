@@ -9,5 +9,3 @@ This project was create for exam front-end developer vacancy. This is applicatio
 
 Clone this repository for run this app localy and use `ng start` for start app. Navigate to `http://localhost:4200/` in your favorite browser.
 Link for app in internet - `https://kreolx.github.io/refillbalance/`
-
-

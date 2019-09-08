@@ -9,12 +9,14 @@ import IOperator from 'src/app/models/IOperator';
 })
 export class OperatorComponent implements OnInit {
   operatorList: Array<IOperator> = [];
-  constructor(private route: ActivatedRoute) { }
+  constructor(public route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.data.subscribe(data => {
-      this.operatorList = data.operators;
-    });
+    if (this.route.data) {
+      this.route.data.subscribe(data => {
+        this.operatorList = data.operators;
+      });
+    }
   }
 
 }
