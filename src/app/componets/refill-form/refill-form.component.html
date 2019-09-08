@@ -1,20 +1,42 @@
-<div class="clr-row text-center">
+<div class="clr-row ">
   <div class="clr-col-12 clr-col-sm-12 clr-col-md-3 clr-col-lg-4 clr-col-xl-4"></div>
-  <div class="clr-col " >
-    <h1>Fill the form</h1>
+  <div class="clr-col" >
+    <h1 class="text-center">Fill the form</h1>
+      <div class="alert" [ngClass]="{'alert-warning': resultStatus == resultEnum.Error, 'alert-success': resultStatus == resultEnum.Ok}"
+       *ngIf="resultMessage">
+       <div class="alert-items">
+         <div class="alert-item static">
+           <div class="alert-icon-wrapper">
+             <clr-icon class="alert-icon" shape="getAlertShape()"></clr-icon>
+           </div>
+           <span class="alert-text">{{resultMessage}}</span>
+         </div>
+       </div>
+      </div>
       <form (submit)="submitForm($event)" clrForm [formGroup]='refillForm'>
         <clr-input-container>
           <label class="clr-col-12 clr-col-sm-12 clr-col-md-6 clr-col-lg-6 clr-col-xl-6">Operator name</label>
-          <input class="clr-col-12 clr-col-sm-12 clr-col-md-6 clr-col-lg-6 clr-col-xl-6" clrInput type="text" formControlName="operatorName">
+          <input class="clr-col-12 clr-col-sm-12 clr-col-md-6 clr-col-lg-6 clr-col-xl-6" clrInput readonly="readonly" type="text" formControlName="operatorName">
         </clr-input-container>
         <clr-input-container>
           <label class="clr-col-12 clr-col-sm-12 clr-col-md-6 clr-col-lg-6 clr-col-xl-6">Phone number</label>
-          <input class="clr-col-12 clr-col-sm-12 clr-col-md-6 clr-col-lg-6 clr-col-xl-6" clrInput type="text" formControlName="phoneNumber">
+          <input class="clr-col-12 clr-col-sm-12 clr-col-md-6 clr-col-lg-6 clr-col-xl-6"
+           clrInput
+            (input)="changePhone($event)"
+            type="text"
+            autocomplete="off"
+            formControlName="phoneNumber"
+            autofocus
+            placeholder='70000000000'>
         </clr-input-container>
         <clr-input-container>
           <label class="clr-col-12 clr-col-sm-12 clr-col-md-6 clr-col-lg-6 clr-col-xl-6">Amount</label>
-          <input class="clr-col-12 clr-col-sm-12 clr-col-md-6 clr-col-lg-6 clr-col-xl-6" clrInput type="number" formControlName="sum">
+          <input class="clr-col-12 clr-col-sm-12 clr-col-md-6 clr-col-lg-6 clr-col-xl-6" clrInput type="number" formControlName="amount">
         </clr-input-container>
+        <div class="btn-container">
+            <button class="btn btn-warning" type="button" (click)="cancelSend($event)" [disabled]="sendRequest">Cancel</button>
+            <button class="btn btn-primary" type="submit" [clrLoading]="submitBtnState" (click)="submitForm($event)" [disabled]="!refillForm.valid">Success</button>
+        </div>
       </form>
   </div>
   <div class="clr-col-12 clr-col-sm-12 clr-col-md-3 clr-col-lg-4 clr-col-xl-4"></div>

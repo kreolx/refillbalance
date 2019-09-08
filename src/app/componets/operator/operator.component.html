@@ -6,11 +6,11 @@
     class="clr-col-12 clr-col-sm-12 clr-col-md-6 clr-col-lg-3 clr-col-xl-3"
     *ngFor="let operator of operatorList"
   >
-    <a [routerLink]="['refill', operator.id, operator.name]"
+    <a [routerLink]="['refill', operator?.id, operator?.name]"
     routerLinkActive="active" class="card clickable">
       <div class="card-block">
         <div class="card-title text-center">
-          {{ operator.name }}
+          {{ operator?.name }}
         </div>
       </div>
     </a>

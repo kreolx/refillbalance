@@ -10,9 +10,9 @@ describe('OperatorResolver service test', () => {
     let injector: Injector;
     beforeEach(() => {
         TestBed.configureTestingModule({
-            providers: [ 
+            providers: [
                 OperatorResolver,
-                { provide: Router, useClass: class {navigate = jasmine.createSpy("navigate");}}, 
+                { provide: Router, useClass: class {navigate = jasmine.createSpy('navigate'); }},
             ]
         });
         route = new ActivatedRouteSnapshot();
